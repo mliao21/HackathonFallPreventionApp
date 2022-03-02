@@ -1,25 +1,36 @@
-import logo from './logo.svg';
+import "bulma/css/bulma.css";
 import './App.css';
+import React, { Component } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {
+  MainPage,
+  // SearchPatient,
+} from "./components";
+// import BookData from "./data.json";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    // userLists: [],
+  };
+
+  async componentDidMount() {
+    // const resUsers = await fetch('/users');
+    // const usersBody = await resUsers.json();
+    // this.setState({ userLists: usersBody });
+
+  }
+
+  render() {
+    const { userLists } = this.state;
+    return (
+      <Router>
+        <Routes>
+          <Route path="/" element={<MainPage />} />
+          {/* <Route path="/patient_search" element={<SearchPatient data={BookData}/>} /> */}
+        </Routes>
+      </Router>
+    );
+  }
 }
 
 export default App;
