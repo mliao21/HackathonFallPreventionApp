@@ -6,6 +6,7 @@ import {
   MainPage,
   // SearchPatient,
 } from "./components";
+import AddPatient from "./components/AddPatient";
 // import BookData from "./data.json";
 
 class App extends Component {
@@ -26,6 +27,7 @@ class App extends Component {
       <Router>
         <Routes>
           <Route path="/" element={<MainPage />} />
+          <Route path="/new_patient" element={<AddPatient />} />
           {/* <Route path="/patient_search" element={<SearchPatient data={BookData}/>} /> */}
         </Routes>
       </Router>
