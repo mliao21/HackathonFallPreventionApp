@@ -3,7 +3,7 @@ import { css, jsx } from '@emotion/react';
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeartbeat, faSearch, faClose } from '@fortawesome/free-solid-svg-icons';
+import { faHeartbeat, faSearch, faClose, faBell } from '@fortawesome/free-solid-svg-icons';
 import elders from './ellie-n-carl.jpg';
 import "./SearchPatient.css";
 import PopUpModal from './PopUpModal';
@@ -103,7 +103,15 @@ const MainPage = ({ data }) => {
                                     <button class="button is-rounded is-large is-fullwidth mt-4 ml-6">Add New Patient</button>
                                 </NavLink>
                                 <div>
-                                    <button class="button is-rounded is-large is-fullwidth mt-4 ml-6">High-Risk Patients</button>
+                                    {data.length === 0 ? (
+                                        <button class="button is-rounded is-large is-fullwidth mt-4 ml-6">High-Risk Patients</button>
+                                    ) : (
+                                        <button class="button is-rounded is-large is-fullwidth mt-4 ml-6 is-danger ">
+                                            <span><FontAwesomeIcon icon={faBell} css={css`margin-right: 5px;`}/></span>
+                                            High-Risk Patients
+                                            <span><FontAwesomeIcon icon={faBell} css={css`margin-left: 5px;`}/></span>
+                                        </button>
+                                    )}
                                 </div>
                                 <div>
                                     <button class="button is-rounded is-large is-fullwidth mt-4 ml-6">Resources</button>
