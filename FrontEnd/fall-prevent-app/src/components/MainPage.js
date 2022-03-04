@@ -10,7 +10,8 @@ import PopUpModal from './PopUpModal';
 
 
 const MainPage = ({ data }) => {
-    const [isOpen, setIsOpen] = useState(false);
+    const [isOpenSearch, setIsOpenSearch] = useState(false);
+    const [isOpenRisk, setIsOpenRisk] = useState(false);
     const [filteredData, setFilteredData] = useState([]);
     const [wordEntered, setWordEntered] = useState("");
 
@@ -33,10 +34,14 @@ const MainPage = ({ data }) => {
         setWordEntered("");
     };
 
-    const closePopUp = () => {
-        setIsOpen(false);
+    const closePopUpSearch = () => {
+        setIsOpenSearch(false);
         setFilteredData([]);
         setWordEntered("");
+    };
+
+    const closePopUpRisk = () => {
+        setIsOpenRisk(false);
     };
 
     return (
@@ -65,8 +70,8 @@ const MainPage = ({ data }) => {
                             <div class="tile is-child is-10">
                                 <div>
                                     <button class="button is-rounded is-large is-fullwidth mt-1 ml-6"
-                                        onClick={() => setIsOpen(true)}>Patient Search</button>
-                                    <PopUpModal open={isOpen} onClose={closePopUp}>
+                                        onClick={() => setIsOpenSearch(true)}>Patient Search</button>
+                                    <PopUpModal open={isOpenSearch} onClose={closePopUpSearch}>
                                         <div>
                                             <div className="search">
                                                 <div className="searchInputs">
@@ -89,7 +94,8 @@ const MainPage = ({ data }) => {
                                                         {filteredData.map((value, key) => {
                                                             return (
                                                                 <a className="dataItem" href={value.link} target="_blank">
-                                                                    <p>{value.title} </p>
+                                                                    <p>{value.title}</p>
+                                                                    <p>{value.author}</p>
                                                                 </a>
                                                             );
                                                         })}
@@ -104,14 +110,28 @@ const MainPage = ({ data }) => {
                                 </NavLink>
                                 <div>
                                     {data.length === 0 ? (
-                                        <button class="button is-rounded is-large is-fullwidth mt-4 ml-6">High-Risk Patients</button>
-                                    ) : (
-                                        <button class="button is-rounded is-large is-fullwidth mt-4 ml-6 is-danger ">
-                                            <span><FontAwesomeIcon icon={faBell} css={css`margin-right: 5px;`}/></span>
+                                        <button class="button is-rounded is-large is-fullwidth mt-4 ml-6" onClick={() => setIsOpenRisk(true)}>
                                             High-Risk Patients
-                                            <span><FontAwesomeIcon icon={faBell} css={css`margin-left: 5px;`}/></span>
+                                        </button>
+                                    ) : (
+                                        <button class="button is-rounded is-large is-fullwidth mt-4 ml-6 is-danger" onClick={() => setIsOpenRisk(true)}>
+                                            <span><FontAwesomeIcon icon={faBell} css={css`margin-right: 5px;`} /></span>
+                                            High-Risk Patients
+                                            <span><FontAwesomeIcon icon={faBell} css={css`margin-left: 5px;`} /></span>
                                         </button>
                                     )}
+                                    <PopUpModal open={isOpenRisk} onClose={closePopUpRisk}>
+                                        <div className="dataResult">
+                                            {data.map((value, key) => {
+                                                return (
+                                                    <a className="dataItem" href={value.link} target="_blank">
+                                                        <p>{value.title} </p>
+                                                        <p>{value.author} </p>
+                                                    </a>
+                                                );
+                                            })}
+                                        </div>
+                                    </PopUpModal>
                                 </div>
                                 <div>
                                     <button class="button is-rounded is-large is-fullwidth mt-4 ml-6">Resources</button>

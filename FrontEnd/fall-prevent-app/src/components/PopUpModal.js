@@ -30,7 +30,6 @@ function PopUpModal({ open, children, onClose }) {
                 <div class="navbar-end">
                     <button class="button is-danger" onClick={onClose} css={css`margin-bottom: 10px;`}>
                         <FontAwesomeIcon icon={faClose} size="2x" />
-                        {/* close */}
                     </button>
                 </div>
                 {children}
