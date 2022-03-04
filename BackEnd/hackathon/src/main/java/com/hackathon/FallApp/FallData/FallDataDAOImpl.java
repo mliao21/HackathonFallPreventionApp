@@ -1,13 +1,12 @@
 package com.hackathon.FallApp.FallData;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 
-import com.hackathon.FallApp.patient.Patient;
-
+@Repository
 public class FallDataDAOImpl implements FallDataDAO{
 	
 
