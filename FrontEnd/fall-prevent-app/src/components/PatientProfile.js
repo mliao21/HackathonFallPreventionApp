@@ -4,7 +4,7 @@ import { css, jsx } from '@emotion/react';
 import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
-import ellie from './profile-ellie-fredricksen.jpg';
+import ellie from '../images/profile-ellie-fredricksen.jpg';
 
 
 const PatientProfile = () => {

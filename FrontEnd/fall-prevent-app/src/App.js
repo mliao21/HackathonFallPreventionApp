@@ -9,24 +9,13 @@ import {
 import BookData from "./data.json";
 
 class App extends Component {
-  state = {
-    // userLists: [],
-  };
-
-  async componentDidMount() {
-    // const resUsers = await fetch('/users');
-    // const usersBody = await resUsers.json();
-    // this.setState({ userLists: usersBody });
-  }
 
   render() {
-    // const { userLists } = this.state;
     return (
       <Router>
         <Routes>
           <Route path="/" element={<MainPage data={BookData}/>} />
           <Route path="/new_patient" element={<PatientProfile />} />
-          {/* <Route path="/patient/:id" element={<PatientProfile />} /> */}
         </Routes>
       </Router>
     );

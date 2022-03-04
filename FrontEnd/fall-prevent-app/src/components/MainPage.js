@@ -4,7 +4,7 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeartbeat, faSearch, faClose, faBell } from '@fortawesome/free-solid-svg-icons';
-import elders from './ellie-n-carl.jpg';
+import elders from '../images/ellie-n-carl.jpg';
 import "./SearchPatient.css";
 import PopUpModal from './PopUpModal';
 
