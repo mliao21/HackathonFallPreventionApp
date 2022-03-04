@@ -2,21 +2,24 @@ import React from 'react'
 import {useEffect, useState} from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import patientService from "../services/patient.service";
+import {css} from "@emotion/react";
 
 
 const AddPatient = () => {
 
-    const[firstName, setFirstName] = useState('');
-    const[lastName, setLastName] = useState('');
-    const[fropScore, setFropScore] = useState('');
+    const[name, setName] = useState('');
+    const[bloodtype, setBloodtype] = useState('');
+    const[sex, setSex] = useState('');
+    const[phn, setPhn] = useState('');
     const[diagnosis, setDiagnosis] = useState('');
+    const[weight, setWeight] = useState('');
     const navigate = useNavigate();
     const {id} = useParams();
 
     const savePatient = (e) => {
         e.preventDefault();
 
-        const patient = {firstName, lastName, fropScore, diagnosis, id};
+        const patient = {name, bloodtype, sex, phn, diagnosis,  id};
         if (id) {
             //update
             patientService.update(patient)
@@ -44,9 +47,10 @@ const AddPatient = () => {
         if (id) {
             patientService.get(id)
                 .then(patient => {
-                    setFirstName(patient.data.firstName);
-                    setLastName(patient.data.lastName);
-                    setFropScore(patient.data.fropScore);
+                    setName(patient.data.name);
+                    setBloodtype(patient.data.bloodtype);
+                    setSex(patient.data.sex);
+                    setPhn(patient.data.phn);
                     setDiagnosis(patient.data.diagnosis);
                 })
                 .catch(error => {
@@ -57,8 +61,8 @@ const AddPatient = () => {
 
     return (
 
-        <body className="has-background-primary-light">
-          <div className="container">
+        <body css={css`background-color: #A7C7E7; min-height: 100vh`}>
+        <div className="container">
 
             <h1 className="title">Add Patient</h1>
 
@@ -66,14 +70,14 @@ const AddPatient = () => {
             <form>
 
                 <div className="field">
-                    <label className="label">First Name</label>
+                    <label className="label">Name</label>
                     <div className="control">
                         <input
                             className="input"
                             type="text"
-                            placeholder="Enter first Name"
-                            value={firstName}
-                            onChange = {(e) => setFirstName(e.target.value)}
+                            placeholder="Enter full name starting with the first name."
+                            value={name}
+                            onChange = {(e) => setName(e.target.value)}
 
                         />
                     </div>
@@ -82,14 +86,14 @@ const AddPatient = () => {
 
 
                 <div className="field">
-                    <label className="label">Last Name</label>
+                    <label className="label">Blood Type</label>
                     <div className="control">
                         <input
                             className="input"
                             type="text"
-                            placeholder="Enter last name"
-                            value={lastName}
-                            onChange = {(e) => setLastName(e.target.value)}
+                            placeholder="Enter blood type."
+                            value={bloodtype}
+                            onChange = {(e) => setBloodtype(e.target.value)}
 
                         />
                     </div>
@@ -98,19 +102,33 @@ const AddPatient = () => {
 
 
                 <div className="field">
-                    <label className="label">FROP Score</label>
+                    <label className="label">Sex</label>
                     <div className="control">
                         <input
                             className="input"
                             type="text"
-                            placeholder="Enter FROP Score"
-                            value={fropScore}
-                            onChange = {(e) => setFropScore(e.target.value)}
+                            placeholder="Enter sex."
+                            value={sex}
+                            onChange = {(e) => setSex(e.target.value)}
 
                         />
                     </div>
                 </div>
 
+
+                <div className="field">
+                    <label className="label">PHN</label>
+                    <div className="control">
+                        <input
+                            className="input"
+                            type="text"
+                            placeholder="Enter PHN"
+                            value={phn}
+                            onChange = {(e) => setPhn(e.target.value)}
+
+                        />
+                    </div>
+                </div>
 
                 <div className="field">
                     <label className="label">Diagnosis</label>
@@ -118,9 +136,23 @@ const AddPatient = () => {
                         <input
                             className="input"
                             type="text"
-                            placeholder="Enter diagnosis"
+                            placeholder="Enter diagnosis."
                             value={diagnosis}
                             onChange = {(e) => setDiagnosis(e.target.value)}
+
+                        />
+                    </div>
+                </div>
+
+                <div className="field">
+                    <label className="label">Weight</label>
+                    <div className="control">
+                        <input
+                            className="input"
+                            type="text"
+                            placeholder="Enter weight."
+                            value={weight}
+                            onChange = {(e) => setWeight(e.target.value)}
 
                         />
                     </div>
@@ -131,7 +163,7 @@ const AddPatient = () => {
             </form>
             <hr/>
             <Link to="/">Main Page</Link>
-          </div>
+        </div>
         </body>
 
 
@@ -140,5 +172,6 @@ const AddPatient = () => {
 }
 
 export default AddPatient;
+
 
 
