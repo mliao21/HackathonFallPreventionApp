@@ -2,7 +2,7 @@ import React from 'react'
 import {useEffect, useState} from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import patientService from "../services/patient.service";
-import {css} from "@emotion/react";
+
 
 const AddPatient = () => {
 
