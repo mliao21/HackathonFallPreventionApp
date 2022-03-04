@@ -38,7 +38,7 @@ CREATE TABLE FALLDATA (
 	FallID			integer not null auto_increment,
 	PatientID		integer not null,
 	FROPScore		integer, 
-	FROPData		varchar(100),
+	FROPDate		varchar(100),
 	PRIMARY KEY (FallID),
     FOREIGN KEY (PatientID) REFERENCES PATIENT(PatientID)
 );

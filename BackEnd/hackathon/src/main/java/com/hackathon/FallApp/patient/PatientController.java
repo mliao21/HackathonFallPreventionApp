@@ -1,6 +1,5 @@
 package com.hackathon.FallApp.patient;
 
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
