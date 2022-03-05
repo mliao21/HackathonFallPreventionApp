@@ -1,4 +1,4 @@
-package com.hackathon.FallApp.PatientData;
+package com.hackathon.FallApp.falldata;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -6,15 +6,14 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-
 @ControllerAdvice
-
-public class PatientDataNotFoundAdvice {
+public class FalldataNotFoundAdvice {
 	
 	@ResponseBody
-	  @ExceptionHandler(PatientDataNotFoundException.class)
+	  @ExceptionHandler(FalldataNotFoundException.class)
 	  @ResponseStatus(HttpStatus.NOT_FOUND)
-	  String PatientNotFoundHandler(PatientDataNotFoundException ex) {
+	  String FallDataNotFoundHandler(FalldataNotFoundException ex) {
 	    return ex.getMessage();
 	  }
+	
 }

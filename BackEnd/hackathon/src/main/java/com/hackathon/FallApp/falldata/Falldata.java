@@ -1,4 +1,4 @@
-package com.hackathon.FallApp.FallData;
+package com.hackathon.FallApp.falldata;
 
 import java.util.Objects;
 
@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class FallData {
+public class Falldata {
 	
 	private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long fallid;
 	private int patientid;

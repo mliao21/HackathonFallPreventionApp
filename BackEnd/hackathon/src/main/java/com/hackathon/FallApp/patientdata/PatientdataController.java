@@ -1,4 +1,4 @@
-package com.hackathon.FallApp.PatientData;
+package com.hackathon.FallApp.patientdata;
 
 import java.util.List;
 
@@ -15,30 +15,30 @@ import org.springframework.web.bind.annotation.RestController;
 
 @CrossOrigin
 @RestController
-public class PatientDataController {
+public class PatientdataController {
 	
 	@Autowired
-	private PatientDataDAO pdDAO;
+	private PatientdataDAO pdDAO;
 	
 	@GetMapping("/patientdata")
-	public List<PatientData> getPatientData(){
+	public List<Patientdata> getPatientData(){
 		return pdDAO.getAll();
 	}
 	
 	@GetMapping("/patientdata/{id}")
-	public PatientData getPatientDataByID(@PathVariable int id) {
+	public Patientdata getPatientDataByID(@PathVariable int id) {
 		return pdDAO.getByID(id);
 	}
 	
 	
 	@PostMapping("/patientdata")
-	public ResponseEntity<?> savePatientData(@RequestBody PatientData PatientData) {
+	public ResponseEntity<?> savePatientData(@RequestBody Patientdata PatientData) {
 		pdDAO.save(PatientData);
 		return ResponseEntity.ok("PatientData registered successfully!");
 	}
 	
 	@PutMapping("patientdata/{id}")
-	public String updatePatientData(@RequestBody PatientData PatientData, @PathVariable int id) {
+	public String updatePatientData(@RequestBody Patientdata PatientData, @PathVariable int id) {
 		return pdDAO.update(PatientData, id) + " rows updated to DB";
 	}
 	

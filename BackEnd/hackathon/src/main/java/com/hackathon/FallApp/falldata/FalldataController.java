@@ -1,4 +1,4 @@
-package com.hackathon.FallApp.FallData;
+package com.hackathon.FallApp.falldata;
 
 import java.util.List;
 
@@ -15,30 +15,30 @@ import org.springframework.web.bind.annotation.RestController;
 
 @CrossOrigin
 @RestController
-public class FallDataController {
+public class FalldataController {
 	
 	@Autowired
-	private FallDataDAO fDAO;
+	private FalldataDAO fDAO;
 	
 	@GetMapping("/fall")
-	public List<FallData> getFalls(){
+	public List<Falldata> getFalls(){
 		return fDAO.getAll();
 	}
 	
 	@GetMapping("/fall/{id}")
-	public FallData getFallByID(@PathVariable int id) {
+	public Falldata getFallByID(@PathVariable int id) {
 		return fDAO.getByID(id);
 	}
 	
 	
 	@PostMapping("/fall")
-	public ResponseEntity<?> saveFalls(@RequestBody FallData fall) {
+	public ResponseEntity<?> saveFalls(@RequestBody Falldata fall) {
 		fDAO.save(fall);
 		return ResponseEntity.ok("Fall registered successfully!");
 	}
 	
 	@PutMapping("fall/{id}")
-	public String updateFall(@RequestBody FallData fall, @PathVariable int id) {
+	public String updateFall(@RequestBody Falldata fall, @PathVariable int id) {
 		return fDAO.update(fall, id) + " rows updated to DB";
 	}
 	
@@ -47,5 +47,8 @@ public class FallDataController {
 		return fDAO.delete(id) + " rows deleted from DB";
 	}
 	
-	
+	@GetMapping("/fall/highest")
+	public List<Falldata> getHighest(){
+		return fDAO.getHighest();
+	}
 }

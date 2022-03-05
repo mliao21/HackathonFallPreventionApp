@@ -16,38 +16,39 @@ public class PatientDAOImpl implements PatientDAO{
 	
 	@Override
 	public int save(Patient patient) {
-		return jdbcTemplate.update("INSERT INTO PATIENT(name, bloodtype, sex, phn, diagnosis, weight) VALUES (?,?,?,?,?,?)" ,new Object[] {patient.getName(), 
+		return jdbcTemplate.update("INSERT INTO patient(name, bloodtype, sex, phn, diagnosis, dob,weight) VALUES (?,?,?,?,?,?,?)" ,new Object[] {patient.getName(), 
 				patient.getBloodtype(),
 				patient.getSex(),
 				patient.getPhn(),
 				patient.getDiagnosis(),
+				patient.getDob(),
 				patient.getWeight()});
 	}
 
 	@Override
 	public int update(Patient patient, int patientid) {
-		return jdbcTemplate.update("UPDATE PATIENT SET name=?, bloodtype =?, sex =?, phn =?, diagnosis =?, weight =? WHERE patientid=?", new Object[] {patient.getName(), 
+		return jdbcTemplate.update("UPDATE patient SET name=?, bloodtype =?, sex =?, phn =?, diagnosis =?, dob=?, weight =? WHERE patientid=?", new Object[] {patient.getName(), 
 				patient.getBloodtype(),
 				patient.getSex(),
 				patient.getPhn(),
 				patient.getDiagnosis(),
+				patient.getDob(),
 				patient.getWeight()});
 	}
 
 	@Override
 	public int delete(int patientid) {
-		return jdbcTemplate.update("DELETE FROM PATIENT WHERE patientid=?", patientid);
+		return jdbcTemplate.update("DELETE FROM patient WHERE patientid=?", patientid);
 	}
 
 	@Override
 	public List<Patient> getAll() {
-		return jdbcTemplate.query("SELECT * from PATIENT", new BeanPropertyRowMapper<Patient>(Patient.class));
+		return jdbcTemplate.query("SELECT * from patient", new BeanPropertyRowMapper<Patient>(Patient.class));
 	}
-
 
 	@Override
 	public Patient getByID(int id) {
-		return jdbcTemplate.queryForObject("SELECT * FROM PATIENT WHERE patientid =?", new BeanPropertyRowMapper<Patient>(Patient.class),id);
+		return jdbcTemplate.queryForObject("SELECT * FROM patient WHERE patientid =?", new BeanPropertyRowMapper<Patient>(Patient.class),id);
 	}
 
 }
