@@ -21,7 +21,7 @@ const remove = id => {
 }
 
 const getHighRisk = () => {
-    return httpClient.get('/fall/highest');
+    return httpClient.get('/fall/highest/');
 }
 
 const getFrop = id => {

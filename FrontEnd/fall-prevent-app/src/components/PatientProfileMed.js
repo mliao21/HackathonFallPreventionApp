@@ -9,7 +9,7 @@ import PopUpModal from './PopUpModal';
 import patientService from "../services/patient.service";
 
 
-const PatientProfile = () => {
+const PatientProfileMed = () => {
 
     const params = useParams();
     const [isOpenUpdate, setIsOpenUpdate] = useState(false);
@@ -41,22 +41,13 @@ const PatientProfile = () => {
     }, [])
 
     useEffect(() => {
-        patientService.getRecs(patientFropScore)
+        patientService.getMeds(patientFropScore.fropscore)
             .then((response) => {
                 console.log(response.data);
                 setPatientBody(response.data);
             })
             .catch((error) => console.log(error.data));
     }, [])
-
-    // useEffect(() => {
-    //     patientService.getMeds(patientFropScore)
-    //         .then((response) => {
-    //             console.log(response.data);
-    //             setPatientMeds(response.data);
-    //         })
-    //         .catch((error) => console.log(error.data));
-    // }, [])
 
     useEffect(() => {
         patientService.getNotes(params.id)
@@ -103,9 +94,14 @@ const PatientProfile = () => {
                     <div class="container mt-5">
                         <div class="block ml-6">
                             <ul class="is-size-5 ml-5 has-text-black-bis">
-                                <li>Risk Factor: <span>{patientBody.riskFactor}</span></li>
-                                <li>Recommendation:</li>
-                                <li>{patientBody.recommendation}</li>
+                                {/* <li>Risk Factor: <span>{patientBody.riskFactor}</span></li> */}
+                                <li><strong>Risk Factor: </strong><span>Drowsiness</span></li>
+                                <li><strong>Medication contributing to the Risk Factor of Falling:</strong></li>
+                                {/* <li>{patientBody.medication}</li> */}
+                                <li>Imipramine</li>
+                                <li>Mirtazapine</li>
+                                <li>Moclobemide</li>
+                                <li>Nortriptyline</li>
                             </ul>
                         </div>
                     </div>
@@ -134,14 +130,16 @@ const PatientProfile = () => {
                                         <NavLink className="nav-link" to={"/view-patient/" + params.id}>
                                             <button class="button is-rounded is-large is-fullwidth mt-4 mr-4">Vital Signs</button>
                                         </NavLink>
-                                        <NavLink className="nav-link" to={"/view-patient/recs/" + patientFropScore.fropscore}>
+                                        <NavLink className="nav-link" to={"/view-patient/recs/" + params.id}>
                                             <button class="button is-rounded is-large is-fullwidth mt-4 mr-4">Recommendations</button>
                                         </NavLink>
-                                        <NavLink className="nav-link" to={"/view-patient/meds/" + patientFropScore.fropscore}>
+                                        <NavLink className="nav-link" to={"/view-patient/meds/" + params.id}>
                                             <button class="button is-rounded is-large is-fullwidth mt-4 mr-4">Medications</button>
                                         </NavLink>
                                         <NavLink className="nav-link" to={"/view-patient/trends/" + params.id}>
+                                        <div>
                                             <button class="button is-rounded is-large is-fullwidth mt-4 mr-4">Trends</button>
+                                        </div>
                                         </NavLink>
                                         <div>
                                             <button class="button is-rounded is-large is-fullwidth mt-4 mr-4" onClick={() => setIsOpenUpdate(true)}>
@@ -175,4 +173,4 @@ const PatientProfile = () => {
     );
 
 }
-export default PatientProfile;
+export default PatientProfileMed;

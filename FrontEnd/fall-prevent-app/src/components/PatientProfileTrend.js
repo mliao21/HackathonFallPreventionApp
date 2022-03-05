@@ -7,15 +7,38 @@ import { faHome } from '@fortawesome/free-solid-svg-icons';
 import ellie from '../images/profile-ellie-fredricksen.jpg';
 import PopUpModal from './PopUpModal';
 import patientService from "../services/patient.service";
+import { Chart } from "react-google-charts";
 
+export const data = [
+    ["x", "Systolic BP", "Heart Rate"],
+    [0, 126, 75],
+    [1, 135, 70],
+    [2, 149, 80],
+    [3, 138, 90],
+    [4, 135, 68],
+    [5, 129, 72],
+    [6, 140, 80],
+    [7, 130, 100],
+];
 
-const PatientProfile = () => {
+export const options = {
+    hAxis: {
+        title: "Day",
+    },
+    vAxis: {
+        title: "Value",
+    },
+    series: {
+        1: { curveType: "function" },
+    },
+};
+
+const PatientProfileTrend = () => {
 
     const params = useParams();
     const [isOpenUpdate, setIsOpenUpdate] = useState(false);
     const [patientProfile, setPatientProfile] = useState([]);
     const [patientFropScore, setPatientFropScore] = useState([]);
-    const [patientBody, setPatientBody] = useState([]);
     const [patientComment, setPatientComment] = useState([]);
 
 
@@ -41,14 +64,6 @@ const PatientProfile = () => {
             .catch((error) => console.log(error.data));
     }, [])
 
-    useEffect(() => {
-        patientService.getVital(params.id)
-            .then((response) => {
-                console.log(response.data);
-                setPatientBody(response.data);
-            })
-            .catch((error) => console.log(error.data));
-    }, [])
 
     useEffect(() => {
         patientService.getNotes(params.id)
@@ -94,14 +109,15 @@ const PatientProfile = () => {
                     </div>
                     <div class="container mt-5">
                         <div class="block ml-6">
-                            <ul class="is-size-5 ml-5 has-text-black-bis">
-                                <li>Pupil: <span>{patientBody.pupil}</span></li>
-                                <li>Temperature: <span>{patientBody.temperature}</span></li>
-                                <li>Blood Pressure: <span>{patientBody.bloodpressure}</span></li>
-                                <li>Pulse: <span>{patientBody.pulse}</span></li>
-                                <li>Oxygen Saturation: <span>{patientBody.oxygensaturation}</span></li>
-                                <li>Verbal Response: <span>{patientBody.verbalresponse}</span></li>
-                            </ul>
+                            <div class="is-size-5 ml-5 has-text-black-bis">
+                                <Chart
+                                    chartType="LineChart"
+                                    width="80%"
+                                    height="200px"
+                                    data={data}
+                                    options={options}
+                                />
+                            </div>
                         </div>
                     </div>
                     <div class="container" css={css`margin-left: 48px; margin-top: 40px;`}>
@@ -172,4 +188,4 @@ const PatientProfile = () => {
     );
 
 }
-export default PatientProfile;
+export default PatientProfileTrend;

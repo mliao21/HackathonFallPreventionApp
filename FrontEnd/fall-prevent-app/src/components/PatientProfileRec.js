@@ -41,22 +41,13 @@ const PatientProfileRec = () => {
     }, [])
 
     useEffect(() => {
-        patientService.getRecs(patientFropScore)
+        patientService.getRecs(patientFropScore.fropscore)
             .then((response) => {
                 console.log(response.data);
                 setPatientBody(response.data);
             })
             .catch((error) => console.log(error.data));
     }, [])
-
-    // useEffect(() => {
-    //     patientService.getMeds(patientFropScore)
-    //         .then((response) => {
-    //             console.log(response.data);
-    //             setPatientMeds(response.data);
-    //         })
-    //         .catch((error) => console.log(error.data));
-    // }, [])
 
     useEffect(() => {
         patientService.getNotes(params.id)
@@ -134,14 +125,16 @@ const PatientProfileRec = () => {
                                         <NavLink className="nav-link" to={"/view-patient/" + params.id}>
                                             <button class="button is-rounded is-large is-fullwidth mt-4 mr-4">Vital Signs</button>
                                         </NavLink>
-                                        <NavLink className="nav-link" to={"/view-patient/recs/" + patientFropScore.fropscore}>
+                                        <NavLink className="nav-link" to={"/view-patient/recs/" + params.id}>
                                             <button class="button is-rounded is-large is-fullwidth mt-4 mr-4">Recommendations</button>
                                         </NavLink>
-                                        <NavLink className="nav-link" to={"/view-patient/meds/" + patientFropScore.fropscore}>
+                                        <NavLink className="nav-link" to={"/view-patient/meds/" + params.id}>
                                             <button class="button is-rounded is-large is-fullwidth mt-4 mr-4">Medications</button>
                                         </NavLink>
                                         <NavLink className="nav-link" to={"/view-patient/trends/" + params.id}>
+                                        <div>
                                             <button class="button is-rounded is-large is-fullwidth mt-4 mr-4">Trends</button>
+                                        </div>
                                         </NavLink>
                                         <div>
                                             <button class="button is-rounded is-large is-fullwidth mt-4 mr-4" onClick={() => setIsOpenUpdate(true)}>

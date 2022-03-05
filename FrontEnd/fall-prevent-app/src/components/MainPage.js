@@ -69,18 +69,18 @@ const MainPage = () => {
         <body css={css`background-color: #A7C7E7; min-height: 100vh`}>
             <nav class="navbar" css={css`background-color: #A7C7E7`}>
                 <div class="navbar-brand">
-                    <div class="navbar-start ml-3" css={css`margin-left: 40px; margin-top: 25px;`}>
+                    <div class="navbar-start ml-3" css={css`margin-left: 80px; margin-top: 40px;`}>
                         <FontAwesomeIcon icon={faHeartbeat} size="3x" color="#bb0a1e" />
                         <span css={css`
                             font-family: Century Gothic;
                             font-size: 45px; 
                             color: #bb0a1e;
                             margin-left: 10px;
-                            font-weight: bold;`}>Company Name</span>
+                            font-weight: bold;`}>MindFall</span>
                     </div>
                 </div>
             </nav>
-            <section class="section mt-4" >
+            <section class="section mt-1" >
                 <div class="container">
                     <div class="tile is-ancestor">
                         <div class="tile is-parent">

@@ -11,8 +11,8 @@ import {
   AddPatient,
 } from "./components";
 import ListMedicationComponent from './components/ListMedicationComponent';
-import HeaderComponent from './components/HeaderComponent';
-import FooterComponent from './components/FooterComponent';
+// import HeaderComponent from './components/HeaderComponent';
+// import FooterComponent from './components/FooterComponent';
 import CreateMedicationComponent from './components/CreateMedicationComponent';
 import ViewMedicationComponent from './components/ViewMedicationComponent';
 
