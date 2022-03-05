@@ -90,7 +90,7 @@ CREATE TABLE falldata(
 	PRIMARY KEY (fallid),
     FOREIGN KEY (patientid) REFERENCES patient(patientid)
 );
-INSERT into falldata (patientid, fropscore, fropdate) 
+INSERT into falldata (patientid, frop_score, fropdate) 
 VALUES
 (1,8,"2021-1-2"),
 (1,7,"2021-5-1"),
