@@ -84,7 +84,7 @@ DROP TABLE IF EXISTS falldata;
 CREATE TABLE falldata( 
 	fallid			integer not null auto_increment,
 	patientid		integer not null,
-	fropscore		integer, 
+	frop_score		integer, 
 	fropdate		date,
 
 	PRIMARY KEY (fallid),
@@ -97,3 +97,11 @@ VALUES
 (1,7,"2021-5-1"),
 (2,2,"2021-5-2"),
 (2,2,"2021-6-10");
+
+INSERT INTO recs(frop_score, recommendation, risk_factor)
+VALUES
+('1', 'consider equipment needs', 'Mobility'),
+('5', 'Check pulse', 'Dizziness'),
+('7', 'Check for weight loss/gain', 'Acute Illness'),
+('2', 'Consider behavior change strategies to address resident readiness', 'Behavior'),
+('4', 'Ensure equipment needs met for safe transfer', 'Transfers');
