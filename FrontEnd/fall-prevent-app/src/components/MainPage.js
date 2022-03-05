@@ -15,13 +15,23 @@ const MainPage = () => {
     const [isOpenRisk, setIsOpenRisk] = useState(false);
     const [filteredData, setFilteredData] = useState([]);
     const [wordEntered, setWordEntered] = useState("");
-    const [patientList, setPatientList] = useState([]);  
+    const [patientList, setPatientList] = useState([]);
+    const [highRiskList, setHighRiskList] = useState([]);  
 
     useEffect(() => {
         patientService.getAll()
             .then((response) => {
                 console.log(response.data);
                 setPatientList(response.data);
+            })
+            .catch((error) => console.log(error.data));
+    }, [])
+
+    useEffect(() => {
+        patientService.getHighRisk()
+            .then((response) => {
+                console.log(response.data);
+                setHighRiskList(response.data);
             })
             .catch((error) => console.log(error.data));
     }, [])
@@ -133,7 +143,7 @@ const MainPage = () => {
                                     )}
                                     <PopUpModal open={isOpenRisk} onClose={closePopUpRisk}>
                                         <div className="dataResult">
-                                            {patientList.map((value, key) => {
+                                            {highRiskList.map((value, key) => {
                                                 return (
                                                     <a className="dataItem" href={value.link}>
                                                         <p>{value.name}</p>

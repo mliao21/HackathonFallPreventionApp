@@ -24,6 +24,6 @@ const getHighRisk = () => {
     return httpClient.get('/fall/highest');
 }
 
-const exportedObject = {  getAll, create, get, update, remove }
+const exportedObject = {  getAll, create, get, update, remove, getHighRisk }
 
 export default exportedObject;
