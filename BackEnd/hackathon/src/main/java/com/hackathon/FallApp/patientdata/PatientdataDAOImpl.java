@@ -54,5 +54,9 @@ public class PatientdataDAOImpl implements PatientdataDAO{
 	public Patientdata getByID(int dataid) {
 		return jdbcTemplate.queryForObject("SELECT * FROM patientdata WHERE dataid =?", new BeanPropertyRowMapper<Patientdata>(Patientdata.class),dataid);
 	}
+	@Override
+	public Patientdata getByPatientIDLatest(int patientid) {
+		return jdbcTemplate.queryForObject("SELECT *, max(date) FROM patientdata WHERE patientid=?", new BeanPropertyRowMapper<Patientdata>(Patientdata.class),patientid);
+	}
 
 }

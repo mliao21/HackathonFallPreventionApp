@@ -9,5 +9,6 @@ public interface PatientdataDAO {
 	int delete(int dataid);
 	List<Patientdata> getAll();
 	Patientdata getByID(int dataid);
+	Patientdata getByPatientIDLatest(int dataid);
 	
 }

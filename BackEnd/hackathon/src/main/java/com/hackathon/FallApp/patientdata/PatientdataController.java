@@ -29,6 +29,11 @@ public class PatientdataController {
 	public Patientdata getPatientDataByID(@PathVariable int id) {
 		return pdDAO.getByID(id);
 	}
+
+	@GetMapping("/patientdata/{id}/latest")
+	public Patientdata getPatientDataByPatientIDLatest(@PathVariable int id) {
+		return pdDAO.getByPatientIDLatest(id);
+	}
 	
 	
 	@PostMapping("/patientdata")
