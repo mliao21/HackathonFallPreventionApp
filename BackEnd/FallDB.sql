@@ -100,8 +100,17 @@ VALUES
 
 INSERT INTO recs(frop_score, recommendation, risk_factor)
 VALUES
-('1', 'consider equipment needs', 'Mobility'),
+('1', 'Consider equipment needs', 'Mobility'),
 ('5', 'Check pulse', 'Dizziness'),
 ('7', 'Check for weight loss/gain', 'Acute Illness'),
 ('2', 'Consider behavior change strategies to address resident readiness', 'Behavior'),
 ('4', 'Ensure equipment needs met for safe transfer', 'Transfers');
+
+
+INSERT INTO meds(frop_score, medication, risk_factor)
+VALUES
+('3', 'Alfuzosin, Doxazosin, Prazosin', 'Hypotension'),
+('1', 'Imipramine, Lithium, Maprotiline, Mirtazapine, Moclobemide, Nortriptyline', 'Drowsiness'),
+('7', 'Brivaracetam, Carbamazepin, Clonazepam, Ethosuximide', 'Osteoporosis'),
+('6', 'Lamotrigine, Levetiracetam, Oxcarbazepine', 'Vision Disturbance'),
+('13', 'Donepezil, Galantamine, Rivastigmine', 'Syncope');
