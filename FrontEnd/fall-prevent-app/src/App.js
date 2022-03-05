@@ -7,17 +7,26 @@ import {
   PatientProfile,
   AddPatient,
 } from "./components";
-import BookData from "./data.json";
-
+// import BookData from "./data.json";
 
 class App extends Component {
+  // state = {
+  //   patientsList: []
+  // };
+
+  // async componentDidMount() {
+  //   const res = await patientService.getAll();
+  //   const body = await res.json();
+  //   this.setState({patientsList: body});
+  // }
 
   render() {
+    // const {patientsList} = this.state;
     return (
       <Router>
         <Routes>
-          <Route path="/" element={<MainPage data={BookData}/>} />
-          <Route path="/patient_profile" element={<PatientProfile />} />
+          <Route path="/" element={<MainPage />} />
+          <Route path="/view-patient/:id" element={<PatientProfile />} />
           <Route path="/new_patient" element={<AddPatient />} />
         </Routes>
       </Router>

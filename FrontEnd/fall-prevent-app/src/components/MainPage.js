@@ -1,25 +1,36 @@
 /** @jsx jsx */
 import { css, jsx } from '@emotion/react';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeartbeat, faSearch, faClose, faBell } from '@fortawesome/free-solid-svg-icons';
 import elders from '../images/ellie-n-carl.jpg';
 import "./SearchPatient.css";
 import PopUpModal from './PopUpModal';
+import patientService from "../services/patient.service";
 
+const MainPage = () => {
 
-const MainPage = ({ data }) => {
     const [isOpenSearch, setIsOpenSearch] = useState(false);
     const [isOpenRisk, setIsOpenRisk] = useState(false);
     const [filteredData, setFilteredData] = useState([]);
     const [wordEntered, setWordEntered] = useState("");
+    const [patientList, setPatientList] = useState([]);  
+
+    useEffect(() => {
+        patientService.getAll()
+            .then((response) => {
+                console.log(response.data);
+                setPatientList(response.data);
+            })
+            .catch((error) => console.log(error.data));
+    }, [])
 
     const handleFilter = (event) => {
         const searchWord = event.target.value;
         setWordEntered(searchWord);
-        const newFilter = data.filter((value) => {
-            return value.title.toLowerCase().includes(searchWord.toLowerCase());
+        const newFilter = patientList.filter((value) => {
+            return value.name.toLowerCase().includes(searchWord.toLowerCase());
         });
 
         if (searchWord === "") {
@@ -77,7 +88,7 @@ const MainPage = ({ data }) => {
                                                 <div className="searchInputs">
                                                     <input
                                                         type="text"
-                                                        placeholder="Enter book here..."
+                                                        placeholder="Enter patient's name here..."
                                                         value={wordEntered}
                                                         onChange={handleFilter}
                                                     />
@@ -93,9 +104,9 @@ const MainPage = ({ data }) => {
                                                     <div className="dataResult">
                                                         {filteredData.map((value, key) => {
                                                             return (
-                                                                <a className="dataItem" href={value.link} target="_blank">
-                                                                    <p>{value.title}</p>
-                                                                    <p>{value.author}</p>
+                                                                <a className="dataItem" href={"/view-patient/"+value.patientid} >
+                                                                    <p>{value.name}</p>
+                                                                    <p>{value.phn}</p>
                                                                 </a>
                                                             );
                                                         })}
@@ -109,7 +120,7 @@ const MainPage = ({ data }) => {
                                     <button class="button is-rounded is-large is-fullwidth mt-4 ml-6">Add New Patient</button>
                                 </NavLink>
                                 <div>
-                                    {data.length === 0 ? (
+                                    {patientList.length === 0 ? (
                                         <button class="button is-rounded is-large is-fullwidth mt-4 ml-6" onClick={() => setIsOpenRisk(true)}>
                                             High-Risk Patients
                                         </button>
@@ -122,11 +133,11 @@ const MainPage = ({ data }) => {
                                     )}
                                     <PopUpModal open={isOpenRisk} onClose={closePopUpRisk}>
                                         <div className="dataResult">
-                                            {data.map((value, key) => {
+                                            {patientList.map((value, key) => {
                                                 return (
-                                                    <a className="dataItem" href={value.link} target="_blank">
-                                                        <p>{value.title} </p>
-                                                        <p>{value.author} </p>
+                                                    <a className="dataItem" href={value.link}>
+                                                        <p>{value.name}</p>
+                                                        <p>{value.phn}</p>
                                                     </a>
                                                 );
                                             })}
