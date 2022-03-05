@@ -141,7 +141,7 @@ VALUES
 (9,3,"2021-5-2"),
 (9,2,"2021-6-10"),
 (10,8,"2021-5-2"),
-(10,10,"2021-6-10");
+(10,9,"2021-6-10");
 
 DROP TABLE IF EXISTS recs;
 CREATE TABLE recs ( 
@@ -164,7 +164,6 @@ VALUES
 ('7', 'Check for weight loss/gain', 'Acute Illness'),
 ('8', 'LAbel glasses for type of correction', 'Visual Impairment'),
 ('9', 'Ensure furniture is stable', 'Environmental');
-
 
 DROP TABLE IF EXISTS meds;
 CREATE TABLE meds ( 
