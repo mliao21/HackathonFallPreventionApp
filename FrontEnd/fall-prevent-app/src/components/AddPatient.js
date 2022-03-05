@@ -1,8 +1,9 @@
+/** @jsx jsx */
+import { css, jsx } from '@emotion/react';
 import React from 'react'
 import {useEffect, useState} from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import patientService from "../services/patient.service";
-import {css} from "@emotion/react";
 
 
 const AddPatient = () => {
@@ -158,7 +159,7 @@ const AddPatient = () => {
                     </div>
                 </div>
                 <div >
-                    <button className= "button is-primary" onClick={(e) => savePatient(e)}>Save</button>
+                    <button className= "button is-link" onClick={(e) => savePatient(e)}>Save</button>
                 </div>
             </form>
             <hr/>
