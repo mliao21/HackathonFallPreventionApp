@@ -25,5 +25,6 @@ public class Patient {
 	private int phn;
 	private String diagnosis;
 	private int weight;
+	private String dob;
 	
 }

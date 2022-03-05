@@ -11,30 +11,31 @@ CREATE TABLE patient(
    phn			integer,
    diagnosis	varchar(100),
    weight		int,
+   dob          date,
    PRIMARY KEY (patientid)
 );
-INSERT INTO patient(name, bloodtype, sex, phn, diagnosis, weight)
+INSERT INTO patient(name, bloodtype, sex, phn, diagnosis, weight,dob)
 VALUES
-('Ada Elsher', 'A+', 'F', '41343828', 'ALS, Pancreatic Cancer, Pneumonia', '147.70954'),
-('Ellie Fredricksens', 'O-', 'F', '55290955', 'Fibromyalgia, Osteoporosis, ALS', '110.231'),
-('Otto Marley', 'O-', 'M', '36735847', 'Arrhythmia of the Heart, Leukemia, IBD', '114.64024'),
-('Dora St. James', 'A+', 'F', '43613479', 'Cataracts, Lupus, IBS', '130.07258'),
-('Theodore Madison', 'A+', 'M', '34655077', 'Hepatitis, Obstructive Sleep Apnea, Rheumatoid Arthritis', '108.02638'),
-('Carl Fredricksens', 'AB+', 'M', '82294439', 'Arthritis, Dry Macular Degeneration, PTSD', '110.231'),
-('Beatrice Thatcher', 'O+', 'F', '24294589', 'Chronic Kidney Failure, MS, MS', '141.09568'),
-('Victor Jenkins', 'B+', 'M', '17392815', 'COPD, Hypothyroidism, Parkinsons Disease', '138.89106'),
-('Silas Hope', 'AB+', 'M', '77884403', 'Glaucoma, Incontinence, Urinary, Staph Infections', '130.07258'),
-('Emily West', 'A-', 'F', '75202717', 'Cholesterol, Hyperthyroidism, Wrinkles', '145.50492'),
-('Arthur Langley', 'B-', 'M', '10701730', 'Atrial Fibrillation, Osteoarthritis, Periodontitis', '160.93726'),
-('Dorothy Hansley', 'B+', 'F', '35842333', 'Alzheimers Disease, Chronic Kidney Failure, Thrush, Oral', '156.52802'),
-('Amelia Solace', 'AB-', 'F', '32176747', 'HIV/AIDS, IBS, TB', '158.73264'),
-('Ava Levine', 'O+', 'F', '27625301', 'Hypertension, Liver Failure, Acute, TIA', '127.86796'),
-('Edith Monroe', 'A-', 'F', '64887564', 'Cancer, Melanoma, Skin Cancer, Vascular Dementia', '121.2541'),
-('Cordelia Bardot', 'B-', 'F', '83683626', 'Bedsores, IBD, Diabetes', '149.91416'),
-('Cyrus Daughtler', 'O-', 'M', '91942731', 'Heart Disease, Parkinsons Disease, Vertigo', '149.91416'),
-('Harvey Lopez', 'A-', 'M', '98836361', 'Bipolar Disorder, Non-Hodgkins Lymphoma, Ulcerative Colitis', '108.02638'),
-('Bessie Raven', 'O+', 'F', '43476740', 'Diabetes, Liver Spots, Bipolar Disorder', '156.52802'),
-('Harriet Cromwell', 'AB-', 'F', '73894787', 'Autism, Hodgkins disease, Stroke', '121.2541');
+('Ada Elsher', 'A+', 'F', '41343828', 'ALS, Pancreatic Cancer, Pneumonia', '147.70954',"1949-11-2"),
+('Ellie Fredricksens', 'O-', 'F', '55290955', 'Fibromyalgia, Osteoporosis, ALS', '110.231',"1950-8-1"),
+('Otto Marley', 'O-', 'M', '36735847', 'Arrhythmia of the Heart, Leukemia, IBD', '114.64024',"1960-10-2"),
+('Dora St. James', 'A+', 'F', '43613479', 'Cataracts, Lupus, IBS', '130.07258',"1949-9-10"),
+('Theodore Madison', 'A+', 'M', '34655077', 'Hepatitis, Obstructive Sleep Apnea, Rheumatoid Arthritis', '108.02638',"1944-10-10"),
+('Carl Fredricksens', 'AB+', 'M', '82294439', 'Arthritis, Dry Macular Degeneration, PTSD', '110.231','1945-9-9'),
+('Beatrice Thatcher', 'O+', 'F', '24294589', 'Chronic Kidney Failure, MS, MS', '141.09568','1939-1-5'),
+('Victor Jenkins', 'B+', 'M', '17392815', 'COPD, Hypothyroidism, Parkinsons Disease', '138.89106','1951-2-5'),
+('Silas Hope', 'AB+', 'M', '77884403', 'Glaucoma, Incontinence, Urinary, Staph Infections', '130.07258','1960-2-5'),
+('Emily West', 'A-', 'F', '75202717', 'Cholesterol, Hyperthyroidism, Wrinkles', '145.50492','1942-11-12'),
+('Arthur Langley', 'B-', 'M', '10701730', 'Atrial Fibrillation, Osteoarthritis, Periodontitis', '160.93726','1949-8-8'),
+('Dorothy Hansley', 'B+', 'F', '35842333', 'Alzheimers Disease, Chronic Kidney Failure, Thrush, Oral', '156.52802','1955-9-1'),
+('Amelia Solace', 'AB-', 'F', '32176747', 'HIV/AIDS, IBS, TB', '158.73264','1960-1-1'),
+('Ava Levine', 'O+', 'F', '27625301', 'Hypertension, Liver Failure, Acute, TIA', '127.86796','1950-12-12'),
+('Edith Monroe', 'A-', 'F', '64887564', 'Cancer, Melanoma, Skin Cancer, Vascular Dementia', '121.2541','1952-2-12'),
+('Cordelia Bardot', 'B-', 'F', '83683626', 'Bedsores, IBD, Diabetes', '149.91416','1953-10-12'),
+('Cyrus Daughtler', 'O-', 'M', '91942731', 'Heart Disease, Parkinsons Disease, Vertigo', '149.91416','1938-8-11'),
+('Harvey Lopez', 'A-', 'M', '98836361', 'Bipolar Disorder, Non-Hodgkins Lymphoma, Ulcerative Colitis', '108.02638','1948-9-1'),
+('Bessie Raven', 'O+', 'F', '43476740', 'Diabetes, Liver Spots, Bipolar Disorder', '156.52802','1951-8-1'),
+('Harriet Cromwell', 'AB-', 'F', '73894787', 'Autism, Hodgkins disease, Stroke', '121.2541','1970-1-3');
 
 
 
