@@ -113,4 +113,4 @@ VALUES
 ('1', 'Imipramine, Lithium, Maprotiline, Mirtazapine, Moclobemide, Nortriptyline', 'Drowsiness'),
 ('7', 'Brivaracetam, Carbamazepin, Clonazepam, Ethosuximide', 'Osteoporosis'),
 ('6', 'Lamotrigine, Levetiracetam, Oxcarbazepine', 'Vision Disturbance'),
-('13', 'Donepezil, Galantamine, Rivastigmine', 'Syncope');
+('10', 'Donepezil, Galantamine, Rivastigmine', 'Syncope');
