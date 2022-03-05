@@ -117,13 +117,13 @@ DROP TABLE IF EXISTS falldata;
 CREATE TABLE falldata( 
 	fallid			integer not null auto_increment,
 	patientid		integer not null,
-	frop_score		integer, 
+	fropscore		integer, 
 	fropdate		date,
 
 	PRIMARY KEY (fallid),
     FOREIGN KEY (patientid) REFERENCES patient(patientid)
 );
-INSERT into falldata (patientid, frop_score, fropdate) 
+INSERT into falldata (patientid, fropscore, fropdate) 
 VALUES
 (1,5,"2021-1-2"),
 (1,7,"2021-5-1"),
