@@ -20,6 +20,10 @@ const remove = id => {
     return httpClient.delete(`/patients/${id}`);
 }
 
+const getHighRisk = () => {
+    return httpClient.get('/fall/highest');
+}
+
 const exportedObject = {  getAll, create, get, update, remove }
 
 export default exportedObject;
