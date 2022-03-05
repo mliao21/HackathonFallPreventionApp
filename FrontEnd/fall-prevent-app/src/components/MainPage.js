@@ -145,7 +145,7 @@ const MainPage = () => {
                                         <div className="dataResult">
                                             {highRiskList.map((value, key) => {
                                                 return (
-                                                    <a className="dataItem" href={value.link}>
+                                                    <a className="dataItem" href={"/view-patient/"+value.patientid}>
                                                         <p>{value.name}</p>
                                                         <p>{value.phn}</p>
                                                     </a>

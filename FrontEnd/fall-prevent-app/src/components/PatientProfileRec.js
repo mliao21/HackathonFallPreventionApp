@@ -94,9 +94,9 @@ const PatientProfileRec = () => {
                     <div class="container mt-5">
                         <div class="block ml-6">
                             <ul class="is-size-5 ml-5 has-text-black-bis">
-                                <li>Risk Factor: <span>{patientBody.riskFactor}</span></li>
-                                <li>Recommendation:</li>
-                                <li>{patientBody.recommendation}</li>
+                                <li><strong>Risk Factor: </strong><span>Behavior</span></li>
+                                <li><strong>Recommendation:</strong></li>
+                                <li>Consider behavior change strategies to address resident readiness</li>
                             </ul>
                         </div>
                     </div>
