@@ -14,7 +14,7 @@ class HeaderComponent extends Component {
             <div>
                 <header>
                                        
-                    <img src="https://nursing.ucalgary.ca/themes/ucalgary/ucws_theme/images/UCalgary.svg" class="logo"/>
+                    <img src="https://nursing.ucalgary.ca/themes/ucalgary/ucws_theme/images/UCalgary.svg" class="logo" width="200"/>
                     
                     
                 </header>

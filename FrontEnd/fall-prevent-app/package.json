@@ -15,7 +15,6 @@
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.24.0",
-    "bootstrap": "^4.5.0",
     "bulma": "^0.9.3",
     "fontawesome-4.7": "^4.7.0",
     "react": "^17.0.2",

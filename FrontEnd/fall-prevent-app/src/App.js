@@ -19,33 +19,31 @@ class App extends Component {
 
   render() {
     return (
-      // <Router>
-      //   <Routes>
-      //     {/* <Route path="/" element={<MainPage data={BookData} />} />
-      //     <Route path="/patient_profile" element={<PatientProfile />} />
-      //     <Route path="/new_patient" element={<AddPatient />} /> */}
+      <Router>
+        <Routes>
+          <Route path="/" element={<MainPage data={BookData} />} />
+          <Route path="/patient_profile" element={<PatientProfile />} />
+          <Route path="/new_patient" element={<AddPatient />} />
+          <Route path="/meds" element={<ListMedicationComponent />} />
+          <Route path="/add-med/:id" element={<CreateMedicationComponent />} />
+          <Route path="/view-med/:id" element={<ViewMedicationComponent />} />
+        </Routes>
+      </Router>
+
+      // <div>
+      //   <Router>
       //     <HeaderComponent />
-      // <Route path="/" exact component={ListMedicationComponent}></Route>
-      // <Route path="/meds" component={ListMedicationComponent}></Route>
-      // <Route path="/add-med/:id" component={CreateMedicationComponent}></Route>
-      // <Route path="/view-med/:id" component={ViewMedicationComponent}></Route>
+      //     <div className="container">
+      //       <Routes>
+      //         <Route path="/" element={<ListMedicationComponent />}></Route>
+      //         <Route path="/add-med/:id" element={<CreateMedicationComponent />}></Route>
+      //         <Route path="/view-med/:id" element={<ViewMedicationComponent />}></Route>
+      //       </Routes>
+      //     </div>
       //     <FooterComponent />
-      //   </Routes>
-      // </Router>
-      <div>
-        <Router>
-          <HeaderComponent />
-          <div className="container">
-            <Routes>
-              <Route path="/" exact component={ListMedicationComponent}></Route>
-              <Route path="/meds" component={ListMedicationComponent}></Route>
-              <Route path="/add-med/:id" component={CreateMedicationComponent}></Route>
-              <Route path="/view-med/:id" component={ViewMedicationComponent}></Route>
-            </Routes>
-          </div>
-          <FooterComponent />
-        </Router>
-      </div>
+      //   </Router>
+      // </div>
+
     );
   }
 }
