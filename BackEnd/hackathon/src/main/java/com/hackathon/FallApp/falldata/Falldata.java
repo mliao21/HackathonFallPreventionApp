@@ -1,4 +1,4 @@
-package com.hackathon.FallApp.Falldata;
+package com.hackathon.FallApp.falldata;
 
 import java.util.Objects;
 

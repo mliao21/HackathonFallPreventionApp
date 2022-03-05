@@ -1,4 +1,4 @@
-package com.hackathon.FallApp.Patientdata;
+package com.hackathon.FallApp.patientdata;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;

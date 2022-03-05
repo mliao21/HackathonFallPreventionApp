@@ -1,4 +1,4 @@
-package com.hackathon.FallApp.Patientdata;
+package com.hackathon.FallApp.patientdata;
 
 public class PatientdataNotFoundException extends RuntimeException{
 	
