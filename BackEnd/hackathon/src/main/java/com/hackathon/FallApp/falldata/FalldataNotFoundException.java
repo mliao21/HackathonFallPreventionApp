@@ -1,4 +1,4 @@
-package com.hackathon.FallApp.falldata;
+package com.hackathon.FallApp.Falldata;
 
 public class FalldataNotFoundException extends RuntimeException{
 	

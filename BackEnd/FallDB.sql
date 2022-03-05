@@ -22,13 +22,13 @@ VALUES
 ('Dora St. James', 'A+', 'F', '43613479', 'Cataracts, Lupus, IBS', '130.07258',"1949-9-10"),
 ('Theodore Madison', 'A+', 'M', '34655077', 'Hepatitis, Obstructive Sleep Apnea, Rheumatoid Arthritis', '108.02638',"1944-10-10"),
 ('Carl Fredricksens', 'AB+', 'M', '82294439', 'Arthritis, Dry Macular Degeneration, PTSD', '110.231','1945-9-9'),
-('Beatrice Thatcher', 'O+', 'F', '24294589', 'Chronic Kidney Failure, MS, MS', '141.09568','1939-1-5'),
+('Beatrice Thatcher', 'O+', 'F', '24294589', 'Chronic Kidney Failure, MS, IBS', '141.09568','1939-1-5'),
 ('Victor Jenkins', 'B+', 'M', '17392815', 'COPD, Hypothyroidism, Parkinsons Disease', '138.89106','1951-2-5'),
 ('Silas Hope', 'AB+', 'M', '77884403', 'Glaucoma, Incontinence, Urinary, Staph Infections', '130.07258','1960-2-5'),
 ('Emily West', 'A-', 'F', '75202717', 'Cholesterol, Hyperthyroidism, Wrinkles', '145.50492','1942-11-12'),
 ('Arthur Langley', 'B-', 'M', '10701730', 'Atrial Fibrillation, Osteoarthritis, Periodontitis', '160.93726','1949-8-8'),
 ('Dorothy Hansley', 'B+', 'F', '35842333', 'Alzheimers Disease, Chronic Kidney Failure, Thrush, Oral', '156.52802','1955-9-1'),
-('Amelia Solace', 'AB-', 'F', '32176747', 'HIV/AIDS, IBS, TB', '158.73264','1960-1-1'),
+('Amelia Solace', 'AB-', 'F', '32176747', 'HIV/AIDS, Chronic Kidney Failure, TB', '158.73264','1960-1-1'),
 ('Ava Levine', 'O+', 'F', '27625301', 'Hypertension, Liver Failure, Acute, TIA', '127.86796','1950-12-12'),
 ('Edith Monroe', 'A-', 'F', '64887564', 'Cancer, Melanoma, Skin Cancer, Vascular Dementia', '121.2541','1952-2-12'),
 ('Cordelia Bardot', 'B-', 'F', '83683626', 'Bedsores, IBD, Diabetes', '149.91416','1953-10-12'),
@@ -36,7 +36,6 @@ VALUES
 ('Harvey Lopez', 'A-', 'M', '98836361', 'Bipolar Disorder, Non-Hodgkins Lymphoma, Ulcerative Colitis', '108.02638','1948-9-1'),
 ('Bessie Raven', 'O+', 'F', '43476740', 'Diabetes, Liver Spots, Bipolar Disorder', '156.52802','1951-8-1'),
 ('Harriet Cromwell', 'AB-', 'F', '73894787', 'Autism, Hodgkins disease, Stroke', '121.2541','1970-1-3');
-
 
 
 DROP TABLE IF EXISTS patientdata;
@@ -99,19 +98,19 @@ VALUES
 (2,2,"2021-5-2"),
 (2,2,"2021-6-10");
 
-INSERT INTO recs(frop_score, recommendation, risk_factor)
-VALUES
-('1', 'Consider equipment needs', 'Mobility'),
-('5', 'Check pulse', 'Dizziness'),
-('7', 'Check for weight loss/gain', 'Acute Illness'),
-('2', 'Consider behavior change strategies to address resident readiness', 'Behavior'),
-('4', 'Ensure equipment needs met for safe transfer', 'Transfers');
+-- INSERT INTO recs(frop_score, recommendation, risk_factor)
+-- VALUES
+-- ('1', 'Consider equipment needs', 'Mobility'),
+-- ('5', 'Check pulse', 'Dizziness'),
+-- ('7', 'Check for weight loss/gain', 'Acute Illness'),
+-- ('2', 'Consider behavior change strategies to address resident readiness', 'Behavior'),
+-- ('4', 'Ensure equipment needs met for safe transfer', 'Transfers');
 
 
-INSERT INTO meds(frop_score, medication, risk_factor)
-VALUES
-('3', 'Alfuzosin, Doxazosin, Prazosin', 'Hypotension'),
-('1', 'Imipramine, Lithium, Maprotiline, Mirtazapine, Moclobemide, Nortriptyline', 'Drowsiness'),
-('7', 'Brivaracetam, Carbamazepin, Clonazepam, Ethosuximide', 'Osteoporosis'),
-('6', 'Lamotrigine, Levetiracetam, Oxcarbazepine', 'Vision Disturbance'),
-('10', 'Donepezil, Galantamine, Rivastigmine', 'Syncope');
+-- INSERT INTO meds(frop_score, medication, risk_factor)
+-- VALUES
+-- ('3', 'Alfuzosin, Doxazosin, Prazosin', 'Hypotension'),
+-- ('1', 'Imipramine, Lithium, Maprotiline, Mirtazapine, Moclobemide, Nortriptyline', 'Drowsiness'),
+-- ('7', 'Brivaracetam, Carbamazepin, Clonazepam, Ethosuximide', 'Osteoporosis'),
+-- ('6', 'Lamotrigine, Levetiracetam, Oxcarbazepine', 'Vision Disturbance'),
+-- ('10', 'Donepezil, Galantamine, Rivastigmine', 'Syncope');

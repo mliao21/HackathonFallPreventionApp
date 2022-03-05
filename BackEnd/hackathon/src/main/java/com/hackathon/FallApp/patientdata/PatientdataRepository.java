@@ -1,4 +1,4 @@
-package com.hackathon.FallApp.patientdata;
+package com.hackathon.FallApp.Patientdata;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

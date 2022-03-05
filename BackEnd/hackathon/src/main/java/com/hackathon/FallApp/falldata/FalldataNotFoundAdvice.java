@@ -1,4 +1,4 @@
-package com.hackathon.FallApp.falldata;
+package com.hackathon.FallApp.Falldata;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;

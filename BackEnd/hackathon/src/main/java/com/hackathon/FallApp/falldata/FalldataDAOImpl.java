@@ -1,4 +1,4 @@
-package com.hackathon.FallApp.falldata;
+package com.hackathon.FallApp.Falldata;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
