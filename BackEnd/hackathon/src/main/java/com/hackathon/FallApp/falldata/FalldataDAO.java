@@ -9,5 +9,6 @@ public interface FalldataDAO {
 	int delete(int fallid);
 	List<Falldata> getAll();
 	Falldata getByID(int fallid);
+	List<Falldata> getHighest();
 	
 }

@@ -44,4 +44,9 @@ public class FalldataDAOImpl implements FalldataDAO{
 		return jdbcTemplate.queryForObject("SELECT * FROM falldata WHERE fallid =?", new BeanPropertyRowMapper<Falldata>(Falldata.class),fallid);
 	}
 
+	@Override
+	public List<Falldata> getHighest() {
+		return jdbcTemplate.query("SELECT DISTINCT falldata.patientid, falldata.fropscore, falldata.fropdate FROM falldata JOIN (	SELECT patientid, MAX(fropdate) 'fropdate', fropscore FROM falldata GROUP BY patientid) x ON x.patientid = falldata.patientid AND x.fropdate = falldata.fropdate", new BeanPropertyRowMapper<Falldata>(Falldata.class));
+	}
+
 }

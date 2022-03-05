@@ -47,5 +47,8 @@ public class FalldataController {
 		return fDAO.delete(id) + " rows deleted from DB";
 	}
 	
-	
+	@GetMapping("/fall/highest")
+	public List<Falldata> getHighest(){
+		return fDAO.getHighest();
+	}
 }
