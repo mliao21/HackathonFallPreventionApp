@@ -96,18 +96,11 @@ CREATE TABLE comment(
 INSERT INTO comment (patientid, comment,date)
 VALUES 
 (1, "Walker should be within reach at all times","2021-10-10"),
-(1, "Daily strengthening exercise after breakfast","2021-11-20"),
 (2, "Give Tylenol before getting patient up in AM","2021-11-11"),
-(2, "Update family if you notice changes in the patient's condition","2022-1-2"),
 (3, "Ask if there is fear of falling or reduction in usual activities","2022-1-3"),
-(3, "Note concerns with feeding and swallowing","2022-1-4"),
 (4, "Note signs and symptomps of depression and aggitation or anxiety","2022-1-5"),
-(4, "Show patients how to use their assistive device when getting up","2022-1-6"),
 (5, "Ask about light-headedness or dizziness","2022-1-7"),
-(5, "Be mindful of anti-psychotic and anti-depressants","2022-1-8"),
 (6, "Note use of alchohol and street recreational drugs","2022-1-9"),
-(6, "Assistance required fo daily activities e.g bathing, dressing","2022-1-10"),
-(7, "Keep bed breaks locked","2022-1-11"),
 (7, "Note presence of shortness of breath at rest or with minimal activity","2022-1-12"),
 (8, "Note signs and symptomps of depression and aggitation or anxiety","2022-1-5"),
 (9, "Show patients how to use their assistive device when getting up","2022-1-6"),
@@ -153,7 +146,7 @@ VALUES
 DROP TABLE IF EXISTS recs;
 CREATE TABLE recs ( 
     id         bigint AUTO_INCREMENT,
-    frop_score        varchar(255),
+    frop_score        int,
     recommendation      varchar(255),
     risk_factor        varchar(100),
     PRIMARY KEY (id)
@@ -163,15 +156,20 @@ CREATE TABLE recs (
 INSERT INTO recs(frop_score, recommendation, risk_factor)
 VALUES
 ('1', 'Consider equipment needs', 'Mobility'),
-('5', 'Check pulse', 'Dizziness'),
-('7', 'Check for weight loss/gain', 'Acute Illness'),
 ('2', 'Consider behavior change strategies to address resident readiness', 'Behavior'),
-('4', 'Ensure equipment needs met for safe transfer', 'Transfers');
+('3', 'Assess for signs of Delirium', 'Cognition'),
+('4', 'Ensure equipment needs met for safe transfer', 'Transfers'),
+('5', 'Check pulse', 'Dizziness'),
+('6', 'Refer to physician or pharmacist for medication review', 'Medication'),
+('7', 'Check for weight loss/gain', 'Acute Illness'),
+('8', 'LAbel glasses for type of correction', 'Visual Impairment'),
+('9', 'Ensure furniture is stable', 'Environmental');
+
 
 DROP TABLE IF EXISTS meds;
 CREATE TABLE meds ( 
     id         bigint AUTO_INCREMENT,
-    frop_score        varchar(255),
+    frop_score        int,
     medication      varchar(255),
     risk_factor        varchar(100),
     PRIMARY KEY (id)
@@ -180,8 +178,12 @@ CREATE TABLE meds (
 
 INSERT INTO meds(frop_score, medication, risk_factor)
 VALUES
-('3', 'Alfuzosin, Doxazosin, Prazosin', 'Hypotension'),
 ('1', 'Imipramine, Lithium, Maprotiline, Mirtazapine, Moclobemide, Nortriptyline', 'Drowsiness'),
-('7', 'Brivaracetam, Carbamazepin, Clonazepam, Ethosuximide', 'Osteoporosis'),
+('2', 'Amitriptyline, Bupropion, Citalopram', 'Dizziness'),
+('3', 'Alfuzosin, Doxazosin, Prazosin', 'Hypotension'),
+('4', 'Thiothixene, Trifluoperazine, Ziprasidone, Zuclopenthixol', 'Parkinsonian Effects'),
+('5', 'Bromocriptine, Entacapone, Levodopa, Pramipexole', 'Ataxia'),
 ('6', 'Lamotrigine, Levetiracetam, Oxcarbazepine', 'Vision Disturbance'),
-('10', 'Donepezil, Galantamine, Rivastigmine', 'Syncope');
+('7', 'Brivaracetam, Carbamazepin, Clonazepam, Ethosuximide', 'Osteoporosis'),
+('8', 'Apixaban, Dabigatran, Dalteparin, Enoxaparin, Fondaparinux', 'Serious Bleeding'),
+('9', 'Donepezil, Galantamine, Rivastigmine', 'Syncope');

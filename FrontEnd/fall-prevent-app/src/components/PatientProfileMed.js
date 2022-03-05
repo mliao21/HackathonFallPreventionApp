@@ -18,7 +18,6 @@ const PatientProfile = () => {
     const [patientBody, setPatientBody] = useState([]);
     const [patientComment, setPatientComment] = useState([]);
 
-
     const closePopUpUpdate = () => {
         setIsOpenUpdate(false);
     };
@@ -42,22 +41,13 @@ const PatientProfile = () => {
     }, [])
 
     useEffect(() => {
-        patientService.getVital(params.id)
+        patientService.getRecs(patientFropScore)
             .then((response) => {
                 console.log(response.data);
                 setPatientBody(response.data);
             })
             .catch((error) => console.log(error.data));
     }, [])
-
-    // useEffect(() => {
-    //     patientService.getRecs(patientFropScore)
-    //         .then((response) => {
-    //             console.log(response.data);
-    //             setPatientRecs(response.data);
-    //         })
-    //         .catch((error) => console.log(error.data));
-    // }, [])
 
     // useEffect(() => {
     //     patientService.getMeds(patientFropScore)
@@ -113,12 +103,9 @@ const PatientProfile = () => {
                     <div class="container mt-5">
                         <div class="block ml-6">
                             <ul class="is-size-5 ml-5 has-text-black-bis">
-                                <li>Pupil: <span>{patientBody.pupil}</span></li>
-                                <li>Temperature: <span>{patientBody.temperature}</span></li>
-                                <li>Blood Pressure: <span>{patientBody.bloodpressure}</span></li>
-                                <li>Pulse: <span>{patientBody.pulse}</span></li>
-                                <li>Oxygen Saturation: <span>{patientBody.oxygensaturation}</span></li>
-                                <li>Verbal Response: <span>{patientBody.verbalresponse}</span></li>
+                                <li>Risk Factor: <span>{patientBody.riskFactor}</span></li>
+                                <li>Recommendation:</li>
+                                <li>{patientBody.recommendation}</li>
                             </ul>
                         </div>
                     </div>
@@ -147,10 +134,10 @@ const PatientProfile = () => {
                                         <NavLink className="nav-link" to={"/view-patient/" + params.id}>
                                             <button class="button is-rounded is-large is-fullwidth mt-4 mr-4">Vital Signs</button>
                                         </NavLink>
-                                        <NavLink className="nav-link" to={"/view-patient/recs/" + params.id}>
+                                        <NavLink className="nav-link" to={"/view-patient/recs/" + patientFropScore.fropscore}>
                                             <button class="button is-rounded is-large is-fullwidth mt-4 mr-4">Recommendations</button>
                                         </NavLink>
-                                        <NavLink className="nav-link" to={"/view-patient/meds/" + params.id}>
+                                        <NavLink className="nav-link" to={"/view-patient/meds/" + patientFropScore.fropscore}>
                                             <button class="button is-rounded is-large is-fullwidth mt-4 mr-4">Medications</button>
                                         </NavLink>
                                         <NavLink className="nav-link" to={"/view-patient/trends/" + params.id}>

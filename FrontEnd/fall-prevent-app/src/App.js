@@ -5,6 +5,9 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import {
   MainPage,
   PatientProfile,
+  PatientProfileRec,
+  PatientProfileMed,
+  PatientProfileTrend,
   AddPatient,
 } from "./components";
 import ListMedicationComponent from './components/ListMedicationComponent';
@@ -22,6 +25,9 @@ class App extends Component {
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/view-patient/:id" element={<PatientProfile />} />
+          <Route path="/view-patient/recs/:id" element={<PatientProfileRec />} />
+          <Route path="/view-patient/meds/:id" element={<PatientProfileMed />} />
+          <Route path="/view-patient/trends/:id" element={<PatientProfileTrend />} />
           <Route path="/new_patient" element={<AddPatient />} />
           <Route path="/meds" element={<ListMedicationComponent />} />
           <Route path="/add-med/:id" element={<CreateMedicationComponent />} />
