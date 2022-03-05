@@ -13,7 +13,7 @@
     align-items: center;
 }
 
-.PatientData input {
+input {
     width: 300px;
     height: 50px;
     font-size: 20px;
@@ -21,7 +21,7 @@
     margin: 5px;
 }
 
-button {
+.PatientData button {
     width: 150px;
     height: 25px;
     margin-top: 30px;
@@ -50,4 +50,14 @@ button:hover {
 
 .patientDataList h3 {
     margin: 20px;
+}
+
+.deleteButton {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    justify-content: baseline;
+    width: 150px;
+    height: 25px;
+    margin-top: 30px;  
 }
