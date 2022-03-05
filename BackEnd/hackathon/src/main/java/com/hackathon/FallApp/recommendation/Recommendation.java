@@ -1,4 +1,4 @@
-package com.hackathon.FallApp.medication;
+package com.hackathon.FallApp.recommendation;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,8 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "meds")
-public class Medication {
+@Table(name = "recs")
+public class Recommendation {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,18 +21,18 @@ public class Medication {
 	@Column(name = "risk_factor")
 	private String riskFactor;
 	
-	@Column(name = "medication")
-	private String medication;
+	@Column(name = "recommendation")
+	private String recommendation;
 	
-	public Medication() {
+	public Recommendation() {
 		
 	}
 	
-	public Medication(String fropScore, String riskFactor, String medication) {
+	public Recommendation(String fropScore, String riskFactor, String recommendation) {
 		super();
 		this.fropScore = fropScore;
 		this.riskFactor= riskFactor;
-		this.medication = medication;
+		this.recommendation = recommendation;
 	}
 	public long getId() {
 		return id;
@@ -52,10 +52,10 @@ public class Medication {
 	public void setRiskFactor(String riskFactor) {
 		this.riskFactor = riskFactor;
 	}
-	public String getMedication() {
-		return medication;
+	public String getRecommendation() {
+		return recommendation;
 	}
-	public void setMedication(String medication) {
-		this.medication = medication;
+	public void setRecommendation(String recommendation) {
+		this.recommendation = recommendation;
 	}
 }

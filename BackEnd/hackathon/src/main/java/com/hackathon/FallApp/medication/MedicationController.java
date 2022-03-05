@@ -1,6 +1,8 @@
 package com.hackathon.FallApp.medication;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -11,38 +13,64 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@CrossOrigin
+
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
-public class MedicationController{
+@RequestMapping("/api/v1/")
+public class MedicationController {
 
 	@Autowired
-	private MedicationDAO aDAO;
+	private MedicationRepository medRepository;
 	
-	@GetMapping("/medications")
-	public List<Medication> getMedications(){
-		return aDAO.getAll();
+	// get all meds
+	@GetMapping("/meds")
+	public List<Medication> getAllMedications(){
+		return medRepository.findAll();
+	}		
+	
+	// create med rest api
+	@PostMapping("/meds")
+	public Medication createMedication(@RequestBody Medication med) {
+		return medRepository.save(med);
 	}
 	
-	@GetMapping("/medications/{id}")
-	public Medication getMedicationByID(@PathVariable int id) {
-		return aDAO.getByID(id);
+	// get med by id rest api
+	@GetMapping("/meds/{id}")
+	public ResponseEntity<Medication> getMedicationById(@PathVariable Long id) {
+		Medication med = medRepository.findById(id)
+				.orElseThrow(() -> new ResourceNotFoundException("Medication not exist with id :" + id));
+		return ResponseEntity.ok(med);
 	}
 	
-	@PostMapping("/medications")
-	public ResponseEntity<?> saveComment(@RequestBody Medication m) {
-		aDAO.save(m);
-		return ResponseEntity.ok("Medication added");
+	// update med rest api
+	
+	@PutMapping("/meds/{id}")
+	public ResponseEntity<Medication> updateMedication(@PathVariable Long id, @RequestBody Medication medDetails){
+		Medication med = medRepository.findById(id)
+				.orElseThrow(() -> new ResourceNotFoundException("Medication not exist with id :" + id));
+		
+		med.setFropScore(medDetails.getFropScore());
+		med.setRiskFactor(medDetails.getRiskFactor());
+		med.setMedication(medDetails.getMedication());
+		
+		Medication updatedMedication = medRepository.save(med);
+		return ResponseEntity.ok(updatedMedication);
 	}
 	
-	@PutMapping("medications/{id}")
-	public String updateMedication(@RequestBody Medication m, @PathVariable int id) {
-		return aDAO.update(m, id) + " rows updated to DB";
+	// delete med rest api
+	@DeleteMapping("/meds/{id}")
+	public ResponseEntity<Map<String, Boolean>> deleteMedication(@PathVariable Long id){
+		Medication med = medRepository.findById(id)
+				.orElseThrow(() -> new ResourceNotFoundException("Medication not exist with id :" + id));
+		
+		medRepository.delete(med);
+		Map<String, Boolean> response = new HashMap<>();
+		response.put("deleted", Boolean.TRUE);
+		return ResponseEntity.ok(response);
 	}
 	
-	@DeleteMapping("medications/{id}")
-	public String deleteMedication(@PathVariable int id) {
-		return aDAO.delete(id) + " rows deleted from DB";
-	}
+	
 }

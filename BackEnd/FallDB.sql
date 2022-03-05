@@ -106,20 +106,20 @@ VALUES
 -- ('2', 'Consider behavior change strategies to address resident readiness', 'Behavior'),
 -- ('4', 'Ensure equipment needs met for safe transfer', 'Transfers');
 
--- DROP TABLE IF EXISTS meds;
--- CREATE TABLE meds ( 
---     id         bigint,
---     frop_score        varchar(255),
---     medication      varchar(255),
---     risk_factor        varchar(100),
---     PRIMARY KEY (frop_score)
+DROP TABLE IF EXISTS meds;
+CREATE TABLE meds ( 
+    id         bigint AUTO_INCREMENT,
+    frop_score        varchar(255),
+    medication      varchar(255),
+    risk_factor        varchar(100),
+    PRIMARY KEY (id)
 
--- );
+);
 
--- INSERT INTO meds(frop_score, medication, risk_factor)
--- VALUES
--- ('3', 'Alfuzosin, Doxazosin, Prazosin', 'Hypotension'),
--- ('1', 'Imipramine, Lithium, Maprotiline, Mirtazapine, Moclobemide, Nortriptyline', 'Drowsiness'),
--- ('7', 'Brivaracetam, Carbamazepin, Clonazepam, Ethosuximide', 'Osteoporosis'),
--- ('6', 'Lamotrigine, Levetiracetam, Oxcarbazepine', 'Vision Disturbance'),
--- ('10', 'Donepezil, Galantamine, Rivastigmine', 'Syncope');
+INSERT INTO meds(frop_score, medication, risk_factor)
+VALUES
+('3', 'Alfuzosin, Doxazosin, Prazosin', 'Hypotension'),
+('1', 'Imipramine, Lithium, Maprotiline, Mirtazapine, Moclobemide, Nortriptyline', 'Drowsiness'),
+('7', 'Brivaracetam, Carbamazepin, Clonazepam, Ethosuximide', 'Osteoporosis'),
+('6', 'Lamotrigine, Levetiracetam, Oxcarbazepine', 'Vision Disturbance'),
+('10', 'Donepezil, Galantamine, Rivastigmine', 'Syncope');
