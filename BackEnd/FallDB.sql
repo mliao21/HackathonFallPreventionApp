@@ -148,12 +148,12 @@ VALUES
 (9,3,"2021-5-2"),
 (9,2,"2021-6-10"),
 (10,8,"2021-5-2"),
-(10,10,"2021-6-10");
+(10,9,"2021-6-10");
 
 DROP TABLE IF EXISTS recs;
 CREATE TABLE recs ( 
     id         bigint AUTO_INCREMENT,
-    frop_score        varchar(255),
+    frop_score        int,
     recommendation      varchar(255),
     risk_factor        varchar(100),
     PRIMARY KEY (id)
@@ -162,16 +162,20 @@ CREATE TABLE recs (
 
 INSERT INTO recs(frop_score, recommendation, risk_factor)
 VALUES
-('1', 'Consider equipment needs', 'Mobility'),
-('5', 'Check pulse', 'Dizziness'),
-('7', 'Check for weight loss/gain', 'Acute Illness'),
-('2', 'Consider behavior change strategies to address resident readiness', 'Behavior'),
-('4', 'Ensure equipment needs met for safe transfer', 'Transfers');
+(1, 'Consider equipment needs', 'Mobility'),
+(2, 'Consider behavior change strategies to address resident readiness', 'Behavior'),
+(3, 'Assess for signs of Delirium', 'Cognition'),
+(4, 'Ensure equipment needs met for safe transfer', 'Transfers'),
+(5, 'Check pulse', 'Dizziness'),
+(6, 'Refer to physician or pharmacist for medication review', 'Medication'),
+(7, 'Check for weight loss/gain', 'Acute Illness'),
+(8, 'LAbel glasses for type of correction', 'Visual Impairment'),
+(9, 'Ensure furniture is stable', 'Environmental');
 
 DROP TABLE IF EXISTS meds;
 CREATE TABLE meds ( 
     id         bigint AUTO_INCREMENT,
-    frop_score        varchar(255),
+    frop_score        int,
     medication      varchar(255),
     risk_factor        varchar(100),
     PRIMARY KEY (id)
@@ -180,8 +184,13 @@ CREATE TABLE meds (
 
 INSERT INTO meds(frop_score, medication, risk_factor)
 VALUES
-('3', 'Alfuzosin, Doxazosin, Prazosin', 'Hypotension'),
-('1', 'Imipramine, Lithium, Maprotiline, Mirtazapine, Moclobemide, Nortriptyline', 'Drowsiness'),
-('7', 'Brivaracetam, Carbamazepin, Clonazepam, Ethosuximide', 'Osteoporosis'),
-('6', 'Lamotrigine, Levetiracetam, Oxcarbazepine', 'Vision Disturbance'),
-('10', 'Donepezil, Galantamine, Rivastigmine', 'Syncope');
+(1, 'Imipramine, Lithium, Maprotiline, Mirtazapine, Moclobemide, Nortriptyline', 'Drowsiness'),
+(2, 'Amitriptyline, Bupropion, Citalopram', 'Dizziness'),
+(3, 'Alfuzosin, Doxazosin, Prazosin', 'Hypotension'),
+(4, 'Thiothixene, Trifluoperazine, Ziprasidone, Zuclopenthixol', 'Parkinsonian Effects'),
+(5, 'Bromocriptine, Entacapone, Levodopa, Pramipexole', 'Ataxia'),
+(6, 'Lamotrigine, Levetiracetam, Oxcarbazepine', 'Vision Disturbance'),
+(7, 'Brivaracetam, Carbamazepin, Clonazepam, Ethosuximide', 'Osteoporosis'),
+(8, 'Apixaban, Dabigatran, Dalteparin, Enoxaparin, Fondaparinux', 'Serious Bleeding'),
+(9, 'Donepezil, Galantamine, Rivastigmine', 'Syncope'),
+(10, 'Donepezil, Galantamine, Rivastigmine', 'Syncope');

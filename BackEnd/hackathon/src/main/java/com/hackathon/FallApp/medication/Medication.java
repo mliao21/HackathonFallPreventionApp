@@ -16,7 +16,7 @@ public class Medication {
 	private long id;
 	
 	@Column(name = "frop_score")
-	private String fropScore;
+	private int fropScore;
 
 	@Column(name = "risk_factor")
 	private String riskFactor;
@@ -28,7 +28,7 @@ public class Medication {
 		
 	}
 	
-	public Medication(String fropScore, String riskFactor, String medication) {
+	public Medication(int fropScore, String riskFactor, String medication) {
 		super();
 		this.fropScore = fropScore;
 		this.riskFactor= riskFactor;
@@ -40,10 +40,10 @@ public class Medication {
 	public void setId(long id) {
 		this.id = id;
 	}
-	public String getFropScore() {
+	public int getFropScore() {
 		return fropScore;
 	}
-	public void setFropScore(String fropScore) {
+	public void setFropScore(int fropScore) {
 		this.fropScore = fropScore;
 	}
 	public String getRiskFactor() {
