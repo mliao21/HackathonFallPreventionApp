@@ -14,7 +14,6 @@ const db = mysql.createConnection({
 });
 
 UpdateData.post('/create', (req, res) => {
-    const dataID= req.body.dataID
     const patientID= req.body.patientID
     const date= req.body.date
     const time= req.body.time
@@ -24,8 +23,8 @@ UpdateData.post('/create', (req, res) => {
     const oxygenSaturation= req.body.oxygenSaturation
     const verbalResponse= req.body.verbalResponse
 
-    db.query('INSERT INTO patientdata (dataID, patientID, date, time, pupil, temperature, bloodPressure, oxygenSaturation,verbalResponse) VALUES (?,?,?,?,?,?,?,?,?)', 
-    [dataID, patientID, date, time,  pupil, temperature, bloodPressure, oxygenSaturation,verbalResponse],
+    db.query('INSERT INTO patientdata (patientID, date, time, pupil, temperature, bloodPressure, oxygenSaturation,verbalResponse) VALUES (?,?,?,?,?,?,?,?,?)', 
+    [patientID, date, time,  pupil, temperature, bloodPressure, oxygenSaturation,verbalResponse],
     (err, result) => {
         if (err) {
             console.log(err);
@@ -41,6 +40,18 @@ UpdateData.get('/patientData', (req, res) => {
         if (err) {
             console.log(err);
         }else {
+            res.send(result);
+        }
+    });
+});
+
+UpdateData.delete('/delete/:patientID', (req, res) =>{
+    const patientID = req.params.patientID;
+
+    db.query("DELETE FROM patientdata WHERE patientID= ?", patientID, (err, result) =>{
+        if (err) {
+            console.log(err);
+        }else{
             res.send(result);
         }
     });
