@@ -143,7 +143,7 @@ const MainPage = () => {
                                     )}
                                     <PopUpModal open={isOpenRisk} onClose={closePopUpRisk}>
                                         <div className="dataResult">
-                                            {highRiskList.map((value, key) => {
+                                            {patientList.map((value, key) => {
                                                 return (
                                                     <a className="dataItem" href={"/view-patient/"+value.patientid}>
                                                         <p>{value.name}</p>
